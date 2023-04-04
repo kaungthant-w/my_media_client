@@ -5,6 +5,7 @@ import axios from 'axios'
             return {
                 // message:"This is testing code lab",
                 postLists : [],
+                categoryLists: []
             };
         },
         methods: {
@@ -22,10 +23,20 @@ import axios from 'axios'
                 this.postLists = response.data.post;
             });
             },
+
+            loadCategory() {
+                axios.get('http://127.0.0.1:8000/api/allCategory').then(response => {
+                    // console.log(response.data);
+                    this.categoryLists = response.data.category;
+                }).catch(error => {
+                    console.log(error);
+                })
+            }
         },  
 
     mounted() {
         this.getAllPost();
+        this.loadCategory();
     },
 
     }
