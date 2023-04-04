@@ -3,15 +3,30 @@ import axios from 'axios'
         name:"HomePage",      
         data() {
             return {
-                message:"This is testing code lab",
-            }
+                // message:"This is testing code lab",
+                postLists : [],
+            };
         },
-        mounted() {
-            axios.get('http://127.0.0.1:8000/api/allPost').then(response => {
-                this.lists = response.data;
-                this.postCount = response.data.length;
-                console.log(response);
-            })
+        methods: {
+            getAllPost() {
+                let post = axios.get('http://127.0.0.1:8000/api/allPost').then(response => {
+                    // console.log(response.data.post.length);
+                    for(let i = 0; i < response.data.post.length; i++) {
+                    // console.log(response.data.post[i].image);
+                   if(response.data.post[i].image != null) {
+                    response.data.post[i].image = "	http://localhost:8000/postImage/"+response.data.post[i].image;
+                   } else {
+                    response.data.post[i].image = "http://localhost:8000/default/default.png";
+                   }
+                }
+                this.postLists = response.data.post;
+            });
+            },
         },  
+
+    mounted() {
+        this.getAllPost();
+    },
+
     }
 
