@@ -15,7 +15,9 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="details.htmlnav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="details.htmlnav-home" role="tab" aria-controls="nav-home" aria-selected="true"
+                                            @click="categorySearch()"
+                                            >All</a
                                             >
                                             <a
                                               class="nav-item nav-link"
@@ -30,12 +32,16 @@
                                             >
                                          </div>
                                     </nav>
-                    <!--End Nav Button  -->
-                  </div>
-                </div>
-              </div>
+                                    <!--End Nav Button  -->
+                                  </div>
+                            </div>
+                          </div>
               <div class="row">
                 <div class="col-12">
+                    <div class="mb-5 justify-content-end d-flex input-group">
+                      <input type="text" class="rounded col-3" v-model="searchKey" v-on:keyup.enter="search()">
+                      <i class="fa-solid fa-magnifying-glass mt-2 ms-2 ml-3 fs-1" @click="search()"></i>
+                    </div>
                   <!-- Nav Card -->
                   <div class="tab-content" id="nav-tabContent">
                     <!-- card one -->
@@ -58,10 +64,10 @@
                                 />
                               </div>
                               <div class="what-cap">
-                                <span class="color1">Night party</span>
+                                <span class="color1">{{ post.title }}</span>
                                 <h4>
                                   <a href="details.html"
-                                    >Welcome To The Best Model Winner Contest</a
+                                    >{{post.description}}</a
                                   >
                                 </h4>
                               </div>
