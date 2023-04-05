@@ -34,7 +34,7 @@ import axios from 'axios'
                     key : this.searchKey,
                 };
 
-                axios.post("http://127.0.0.1:8000/api/category/search", search)
+                axios.post("http://127.0.0.1:8000/api/post/search", search)
                 .then(response => {
                     for(let i = 0; i < response.data.searchData.length; i++) {
                         if(response.data.searchData[i].image != null) {
@@ -47,8 +47,36 @@ import axios from 'axios'
                 })
             } ,
 
-            categorySearch() {
-                console.log('Hello');
+            newsDetails(id){
+                console.log(id);
+                // this.$router.push({
+                //     name: "newsDetails",
+                //     params: {
+                //         newsId : id,
+                //     }
+                // })
+            },
+
+            categorySearch(searchKey) {
+                let search = {
+                    key: searchKey,
+                };
+
+                axios.post('http://127.0.0.1:8000/api/category/search', search)
+                .then(response => {
+                    console.log(response.data);
+                    // console.log(response.data.result);
+                    for(let i = 0; i < response.data.categorySearch.length; i++) {
+                        if(response.data.categorySearch[i].image != null) {
+                         response.data.categorySearch[i].image = "http://127.0.0.1:8000/postImage/"+response.data.categorySearch[i].image;
+                        } else {
+                         response.data.categorySearch[i].image = "http://127.0.0.1:8000/default/default.png";
+                        }
+                     }
+
+                     this.postLists = response.data.categorySearch;
+                })
+                .catch(error => console.log(error));
             },
         },  
 
