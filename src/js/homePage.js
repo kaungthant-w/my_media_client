@@ -48,13 +48,13 @@ import axios from 'axios'
             } ,
 
             newsDetails(id){
-                console.log(id);
-                // this.$router.push({
-                //     name: "newsDetails",
-                //     params: {
-                //         newsId : id,
-                //     }
-                // })
+                // console.log(id);
+                this.$router.push({
+                    name: "newsDetails",
+                    query: {
+                        newsId : id,
+                    }
+                });
             },
 
             categorySearch(searchKey) {

@@ -78,7 +78,7 @@
                               <div class="what-cap">
                                 <span class="color1">{{ post.title }}</span>
                                 <h4>
-                                  <a href="details.html"
+                                  <a href="#"
                                     >{{post.description}}</a
                                   >
                                 </h4>
