@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex justify-content-center py-3">
     <div class="btn btn-danger text-white btn-sm me-4" @click="home()">Home</div>
-    <div class="btn bg-dark text-white btn-sm" @click="loginPage()">Login</div>
+    <div class="btn bg-dark text-white btn-sm" @click="loginPage()" v-if="!tokenStatus">Login</div>
+    <div class="btn bg-dark text-white btn-sm" @click="logout()" v-if="tokenStatus">Logout</div>
   </div>
     <!-- Whats New Start -->
     <section class="whats-news-area pt-50 pb-20">
@@ -59,7 +60,11 @@
                       aria-labelledby="nav-home-tab"
                     >
                        <div class="whats-news-caption">
-                        <div class="row">
+                        <span v-if="!tokenStatus" class=" d-flex justify-content-center bg-danger my-5 p-5 h3 shadow text-white">
+                          You don't have permisson for that
+                        </span>
+                        <span v-else>
+                          <div class="row">
                           <div class="" style="height:500px"
                           v-if="postLists.length === 0"
                           >
@@ -90,6 +95,7 @@
                             </div>
                           </div>
                         </div>
+                        </span>
                       </div>  
                     </div>
                   </div>  

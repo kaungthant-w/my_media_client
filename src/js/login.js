@@ -7,7 +7,9 @@ export default {
             userData: {
                 email:"",
                 password:"",
-            }
+            },
+            tokenStatus: false,
+            userStatus: false,
         }
     },
     computed : {
@@ -32,11 +34,12 @@ export default {
                 // console.log(response.data);
                 // console.log(response.data.token);
                 if(response.data.token == null) {
-                    console.log("There is no user");
+                    // console.log("There is no user");
+                    this.userStatus = true;
                 } else {
-                    this.$store.dispatch('setToken', response.data.token);
-                    this.$store.dispatch('setUserData', response.data.user);
-                    // console.log("token store success");
+                    this.userStatus = false;
+                    this.storeUserInfo(response);
+                    this.home();
                 }
             })
             .catch(error => {
@@ -46,6 +49,10 @@ export default {
         storeUserInfo(response) {
             this.$store.dispatch('setToken', response.data.token);
             this.$store.dispatch('setUserData', response.data.user);
+        },
+
+        mounted() {
+            this.userData = {}
         },
         // check() {
         //     console.log(this.storageToken);
