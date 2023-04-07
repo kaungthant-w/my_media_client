@@ -1,4 +1,8 @@
 <template>
+  <div class="d-flex justify-content-center py-3">
+    <div class="btn btn-danger text-white btn-sm me-4" @click="home()">Home</div>
+    <div class="btn bg-dark text-white btn-sm" @click="loginPage()">Login</div>
+  </div>
     <!-- Whats New Start -->
     <section class="whats-news-area pt-50 pb-20">
             <div class="container">

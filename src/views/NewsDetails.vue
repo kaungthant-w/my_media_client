@@ -1,4 +1,8 @@
 <template>
+    <div class="d-flex justify-content-center py-3">
+    <div class="btn btn-danger text-white btn-sm me-4" @click="home()">Home</div>
+    <div class="btn bg-dark text-white btn-sm" @click="loginPage()">Login</div>
+  </div>
     <div>
         <main>
         <!-- About US Start -->
@@ -32,8 +36,6 @@
                                     <h3>{{posts.title}}</h3>
                                 </div>
                                 <div class="about-prea">
-                                    <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
-                                    <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
                                     <p class="about-pera1 mb-25">
                                         {{ posts.description }}
                                     </p>

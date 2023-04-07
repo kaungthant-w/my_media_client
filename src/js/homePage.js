@@ -57,6 +57,18 @@ import axios from 'axios'
                 });
             },
 
+            home() {
+                this.$router.push({
+                    name : 'home'
+                })
+            },
+
+            loginPage() {
+                this.$router.push({
+                    name:'login'
+                })
+            },
+
             categorySearch(searchKey) {
                 let search = {
                     key: searchKey,

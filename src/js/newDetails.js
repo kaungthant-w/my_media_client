@@ -33,6 +33,18 @@ export default {
             })
 
         },
+        home() {
+            this.$router.push({
+                name : 'home'
+            })
+        },
+
+        loginPage() {
+            this.$router.push({
+                name:'login'
+            })
+        },
+
     },
 
     mounted () {
