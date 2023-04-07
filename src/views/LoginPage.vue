@@ -13,6 +13,7 @@
             <input type="password" id="password" class="form-control" placeholder="Enter Password" v-model="userData.password">
         </div>
         <button type="button" @click="accountLogin()" class="btn bg-primary">Login</button>
+        <button class="btn mt-3" @click="check()">Check Token button</button>
     </div>
 </template>
 <script src="../js/login.js"></script>
